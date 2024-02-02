@@ -8,6 +8,15 @@ import { DashboardAdminComponent } from './admin/dashboard-admin/dashboard-admin
 import { AdminComponent } from './auth/admin/admin.component';
 import { LoginComponent } from './login/login.component';
 import { ListePatientesAdminComponent } from './dashboard/liste-patientes-admin/liste-patientes-admin.component';
+import { AjoutPersonelComponent } from './dashboard/ajout-personel/ajout-personel.component';
+import { GestionContenuComponent } from './dashboard/gestion-contenu/gestion-contenu.component';
+import { GestionPatientesComponent } from './DashPersonel/gestion-patientes/gestion-patientes.component';
+import { GestionRVComponent } from './DashPersonel/gestion-rv/gestion-rv.component';
+import { RessourcesComponent } from './DashPersonel/ressources/ressources.component';
+import { MonCycleComponent } from './DashUser/mon-cycle/mon-cycle.component';
+import { ForumComponent } from './DashUser/forum/forum.component';
+import { DevenirPSComponent } from './DashUser/devenir-ps/devenir-ps.component';
+import { ChoixDirectionComponent } from './choix-direction/choix-direction.component';
 
 
 const routes: Routes = [
@@ -16,7 +25,18 @@ const routes: Routes = [
   {path:"inscriptionuser" , component:UsersComponent},
   {path:"login", component:LoginComponent},
   {path:"dashboard", component:DashboardComponent},
-  {path:"listepatientes" , component:ListePatientesAdminComponent}
+  {path:"listepatientesAdmin" , component:ListePatientesAdminComponent},
+  {path:"ajoutPersoAdmin" , component:AjoutPersonelComponent},
+  {path:"gestionContenuAdmin" , component:GestionContenuComponent},
+  {path:"gestionPatientePS" , component: GestionPatientesComponent},
+  {path:"gestionRVPS" , component:GestionRVComponent},
+  {path:"ressourcesPS" , component:RessourcesComponent},
+  {path:"monCycle" , component: MonCycleComponent},
+  {path:"Forum", component:ForumComponent},
+  {path:"devenirPs", component: DevenirPSComponent},
+  {path:"choixDirection" , component: ChoixDirectionComponent}
+
+
   // {path:"dashADmin" , component:DashboardAdminComponent}
 ];
 

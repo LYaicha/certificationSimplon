@@ -37,20 +37,24 @@ export class LoginComponent {
     };
 // ici on appel le service  puis on decript le token pour avoir l'object
     this.authService.login(data).subscribe((response) => {
-      localStorage.setItem(
-        'access_token',
-        JSON.stringify(response.access_token).replace(/['"]+/g, '')
+      // console.log(response);
+      localStorage.setItem('access_token',JSON.stringify(response.access_token).replace(/['"]+/g, '')
       );
 
-      // a partir de l'objet obtenu on peut obtenir le role du user connecté et à partir du role on fait une condition pour le redigiré
+      // a partir de l'objet obtenu on peut obtenir le role 
       this.authService.userConnect(localStorage.getItem('access_token')).subscribe(
         (user) => {
           console.log(user.role);
           if (user.role=='admin') {
             this.router.navigate(['dashboard']);
             
-          }
+          }else  if (user.role=='personnelsante') {
+            this.router.navigate(['gestionPatientePS']);
+            
+          }else if (user.role=='utilisateur') {
+            this.router.navigate(['monCycle']);
           
+          }
           
         }
       )

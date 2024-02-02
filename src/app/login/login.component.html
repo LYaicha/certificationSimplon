@@ -11,7 +11,8 @@
                         <img src="https://img.freepik.com/photos-gratuite/medecin-smiley-coup-moyen-au-travail_23-2149726937.jpg?size=626&ext=jpg&uid=R115724857&ga=GA1.2.1463458479.1706261075&semt=ais" alt="">
                     </div> -->
                     <!-- inscription -->
-                    <div class="login-wrap p-4 p-md-5" *ngIf="!showForm">
+                    <!-- *ngIf="!showForm" -->
+                    <!-- <div class="login-wrap p-4 p-md-5" >
                         <div class="d-flex">
                             <div class="w-75">
                                 <h4 class="mb-4">Inscription</h4>
@@ -71,10 +72,11 @@
                                     >S'incrire</button>
                             </div>
                         </form>
-                    </div>
+                    </div> -->
                     <!-- end  -->
                     <!-- login -->
-                    <div class="login-wrap p-4 p-md-5" *ngIf="showForm">
+                    <!-- *ngIf="showForm" -->
+                    <div class="login-wrap p-4 p-md-5" >
                         <div class="d-flex">
                             <div class="w-100">
                                 <h3 class="mb-4">Connexion</h3>
@@ -101,9 +103,11 @@
                                 <button type="submit" class="form-control btn btn-primary rounded submit px-3 fw-bold " (click)="login()">Connexion</button>
                             </div>
                             <div>   
-                                <a href="">
-                                    <span class="text-dark">Pas de compte &nbsp;</span><a (click)="switchForm()">S'inscrire </a>
-                                </a>
+                                <!-- (click)="switchForm()" -->
+                                    <span class="text-dark">Pas de compte &nbsp;</span>
+                                    <!-- <a style="color:#e75076; cursor:pointer" [routerLink]="['/choixDirection']">S'inscrire </a> -->
+                                    <button type="button" class="btn btn-primary m-3" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">S'inscrire</button>
+
                             </div>
                         </form>
                     </div>
@@ -113,3 +117,22 @@
         </div>
     </div>
 </section>
+<!-- modal Choix Direction -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <button type="button" class="btn btn-secondary"  style="border-radius: 15px; cursor:pointer; margin:5px" [routerLink]="['/inscriptionperson']">Je suis personnel(le) de santé</button>
+            <button type="button" class="btn btn-secondary" style="border-radius: 15px; cursor:pointer; margin:5px"  [routerLink]="['/inscriptionuser']">Je suis utilisateur simple</button>
+          
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>

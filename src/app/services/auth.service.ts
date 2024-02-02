@@ -20,7 +20,15 @@ export class AuthService {
       headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
     }) : of(null);
   }
+
+  register(user:any){
+    return this.http.post(`${apiUrl}/register_utilisateur`, user)
+  }
+  
+  // methode pour la connexion
+
 }
+
 
 
 // const email = (<HTMLInputElement>document.getElementById('email')).value;

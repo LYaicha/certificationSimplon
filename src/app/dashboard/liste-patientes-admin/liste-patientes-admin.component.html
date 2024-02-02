@@ -5,10 +5,10 @@
   <div class="sidebar-brand">
     <!-- <h1> <span class="fab fa-asymmetrik"> </span> <span>Debbo</span>
     </h1> -->
-    <div class="img"
+    <!-- <div class="img"
       style="background-image: url(//src/assets/img/Logo2.png);">
-    </div>
-    <!-- <img src="/src/assets/img/Logo2.png" alt=""> -->
+    </div> -->
+    <img src="/src/assets/Logo1.png" alt="">
   </div>
   
   <div class="sidebar-menu">
@@ -16,7 +16,7 @@
 
     <ul>
       <li>
-        <a href="#" >
+        <a class="switch" [routerLink]="['/dashboard']" >
           <span class="fas fa-tachometer-alt"></span>
           <span>Tableau de board</span>
         </a>
@@ -28,25 +28,25 @@
         </a>
       </li>
       <li>
-        <a href="#">
+        <a class="switch" [routerLink]="['/dashboard']">
           <span class="fas fa-book-reader"></span>
           <span>Ressources</span>
         </a>
       </li>
       <li>
-        <a href="#">
+        <a class="switch" [routerLink]="['/dashboard']">
           <span><i class="fas fa-comments"></i></span>
           <span>Gestion Contenu</span>
         </a>
       </li>
       <li>
-        <a href="#">
+        <a class="switch" [routerLink]="['/dashboard']">
           <span><i class="fas fa-user-plus"></i></span>
           <span>Ajout Personel</span>
         </a>
       </li>
       <div class="logout mt-5">
-        <a [routerLink]="['/connexion']" routerLinkActive="router-link-active"  class="logout">
+        <a [routerLink]="['/accueil']" routerLinkActive="router-link-active">
           <i class="fas fa-sign-out-alt"></i> Deconnexion
       </a>
       </div>
@@ -69,11 +69,11 @@
       Dashboard
     </h2> -->
 
-    <div class="search-wrapper">
+    <!-- <div class="search-wrapper">
       <span class="fas fa-search"> </span>
       <input type="search" placeholder="Search..." />
       
-    </div>
+    </div> -->
     <div class="fa-bell">
       <i class="fa-solid fa-bell"></i>
     </div>
@@ -129,7 +129,7 @@
 
     <div class="recent-grid">
       <div class="col-lg-12">
-        <div class="card">
+        <div class="card table">
           <div class="card-header">
             <h4>Liste Patientes</h4>
           </div>
@@ -139,7 +139,7 @@
           <!-- tableau datatable debut -->
         
           <!-- listes des patientes debut-->
-<table datatable [dtOptions]="dtOptions" class="row-border hover">
+<table datatable [dtOptions]="dtOptions" class="row-border hover table" id="DataTabl">
   <thead>
     <tr>
       <th>ID</th>
@@ -252,7 +252,7 @@
       <td><i class="far fa-eye"></i></td>
     </tr>
     <tr>
-      <td>1</td>
+      <td>12</td>
       <td>Zelda</td>
       <td>Link</td>
       <td>25</td>
@@ -382,4 +382,6 @@
     </main>
   </div>
 <!-- contenuDash FIN -->
+<!-- popup pour deconnexion debut -->
+<!-- popup pour deconnexion  fin -->
 

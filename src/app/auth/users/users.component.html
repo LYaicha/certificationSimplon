@@ -25,41 +25,33 @@
                                 </p>
                             </div>
                         </div>
-                        <form action="#" class="signin-form">
+                        <form [formGroup]="registerForm" (ngSubmit)="submitForm()" action="#" class="signin-form">
                             <div class="form-group mb-3">
                                 <label class="label" for="nom">Prenom & Nom</label>
-                                <input type="text" class="form-control" id="nom" placeholder="Nom" required name="nom"
+                                <input type="text" class="form-control" formControlName="nom" id="nom" placeholder="Nom" required name="nom"
                                 >
                             </div>
                             <div class="form-group mb-3">
                                 <label class="label" for="email">Email</label>
-                                <input type="text" class="form-control" id="email" placeholder="Email" required name="email"
+                                <input type="text" class="form-control" id="email" formControlName="email" placeholder="Email" required name="email"
                                 >
                             </div>
                             <div class="form-group mb-3">
                                 <label class="label" for="password">Mot de passe</label>
-                                <input type="password" class="form-control" placeholder="mot de passe" required id="password"
+                                <input type="password" class="form-control" formControlName="password" placeholder="mot de passe" required id="password"
                                     name="password">
                             </div>
                             <div class="form-group mb-3">
                                 <label class="label" for="telephone">Telephone</label>
-                                <input type="text" class="form-control" placeholder="Telephone" required id="telephone"
+                                <input type="text" class="form-control" formControlName="telephone" placeholder="Telephone" required id="telephone"
                                     name="telephone">
                             </div>
                             
                             <div class="form-group mb-3">
                                 <label class="label" for="image">Image</label>
-                                <input type="text" class="form-control" id="image" required name="image"
+                                <input type="text" class="form-control" formControlName="image" id="image" required name="image"
                                 >
                             </div>
-                            <div class="mb-4">
-                                <label for="description" class="form-label fw-bold">Description</label>
-                                <div class="form-floating">
-                                    <textarea  class="form-control" placeholder="description" name="description"
-                                        id="description"></textarea>
-                                </div>
-                            </div>
-                            <input type="hidden" value="Bailleur" name="role" />
                             <div class="form-group">
                                 <button type="submit" class="form-control btn btn-primary rounded submit px-3 fw-bold "
                                     >S'incrire</button>
@@ -73,48 +65,3 @@
 </section>
 
 <!-- Formulaire de connexion pourPS -->
-
-<section class="ftco-section">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-12 col-lg-10">
-                <div class="wrap d-md-flex">
-                    <div class="img"
-                        style="background-image: url(https://img.freepik.com/photos-premium/femme-affaires-heureuse-portrait-studio-sourire-excite-fier-du-travail-publicite-travailleuse-africaine-fond-rose-employe-creatif-toute-confiance_590464-209647.jpg?size=626&ext=jpg&uid=R115724857&ga=GA1.1.1463458479.1706261075&semt=ais);">
-                    </div>
-                    <div class="login-wrap p-4 p-md-5">
-                        <div class="d-flex">
-                            <div class="w-100">
-                                <h3 class="mb-4">Connexion</h3>
-                            </div>
-                            <div class="w-100">
-                                <p class="social-media d-flex justify-content-end">
-                                    <a href="#" class="social-icon d-flex align-items-center justify-content-center">
-                                        <span class="fa fa-facebook"></span></a>
-                                    <a href="#" class="social-icon d-flex align-items-center justify-content-center">
-                                        <span class="fa fa-twitter"></span></a>
-                                </p>
-                            </div>
-                        </div>
-                        <form action="#" class="signin-form">
-                            <div class="form-group mb-3">
-                                <label class="label" for="name">Email</label>
-                                <input type="text" class="form-control" placeholder="Email" required name="email"
-                                >
-                            </div>
-                            <div class="form-group mb-3">
-                                <label class="label" for="password">Mot de passe</label>
-                                <input type="password" class="form-control" placeholder="mot de passe" required
-                                    name="password">
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" class="form-control btn btn-primary rounded submit px-3 fw-bold "
-                                    >Connexion</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>

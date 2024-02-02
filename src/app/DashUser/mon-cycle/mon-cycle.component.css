@@ -1,5 +1,9 @@
-
-.headDash{
+:root{
+    --main-color: #11101d;
+    --color-dark: #1D2231;
+    --text-grey:  #8390A2;
+  }
+  .headDash{
     background-color: #f2f2f2;
     width: 100%;
   }
@@ -9,7 +13,7 @@
     background-position: center center;
   }
   
-.sidebar{
+  .sidebar{
     width: 245px;
     position: fixed;
     left: 0;
@@ -30,7 +34,7 @@
   .sidebar-brand{
     height: 90px;
     padding: 1rem 0rem 1rem 2rem;
-    color: #02273D;
+    /* color: #02273D; */
   }
   .sidebar-brand img{
     border: 1px solid black;
@@ -99,8 +103,7 @@
     left:70px;
   
   }
-  
-.main-content{
+  .main-content{
     transition: margin-left 300ms;
     margin-left: 240px;
     background-color: white;

@@ -464,8 +464,8 @@
     width: 65%;
     margin-top: 3%;
     gap: 3%;
-  }
-  .utilsateur{
+}
+.utilsateur{
     color: white;
     background-color: #E08D14;
     width: 45%;
@@ -474,6 +474,13 @@
     margin-left: 10%;
     font-size: 20px;
     border-radius: 10px;
-  }
-  
-  
+}
+
+/*style pour modal formulaire*/
+
+.ajoutPatient{
+  color: #000;
+}
+.ajoutPatient input{
+color: #000;
+}
