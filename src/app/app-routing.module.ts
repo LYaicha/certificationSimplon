@@ -17,6 +17,8 @@ import { MonCycleComponent } from './DashUser/mon-cycle/mon-cycle.component';
 import { ForumComponent } from './DashUser/forum/forum.component';
 import { DevenirPSComponent } from './DashUser/devenir-ps/devenir-ps.component';
 import { ChoixDirectionComponent } from './choix-direction/choix-direction.component';
+import { ConditionsDuComponent } from './conditions-du/conditions-du.component';
+import { PolitiquedConfComponent } from './politiqued-conf/politiqued-conf.component';
 
 
 const routes: Routes = [
@@ -34,7 +36,11 @@ const routes: Routes = [
   {path:"monCycle" , component: MonCycleComponent},
   {path:"Forum", component:ForumComponent},
   {path:"devenirPs", component: DevenirPSComponent},
-  {path:"choixDirection" , component: ChoixDirectionComponent}
+  {path:"choixDirection" , component: ChoixDirectionComponent},
+  {path:"conditionUtilisaton" , component: ConditionsDuComponent},
+  {path:"politiqueConf" , component: PolitiquedConfComponent}
+  
+
 
 
   // {path:"dashADmin" , component:DashboardAdminComponent}

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../services/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -31,6 +32,15 @@ export class LoginComponent {
 
   // methode pour la connexion
   login() {
+   // Vérifier si les champs sont vides
+  if (!this.emailConnexion || !this.passwordConnexion) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Erreur',
+      text: 'Veuillez remplir tous les champs.',
+    });
+    return;
+  }
     const data = {
       email: this.emailConnexion,
       password: this.passwordConnexion,

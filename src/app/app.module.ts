@@ -23,6 +23,12 @@ import { MonCycleComponent } from './DashUser/mon-cycle/mon-cycle.component';
 import { ForumComponent } from './DashUser/forum/forum.component';
 import { DevenirPSComponent } from './DashUser/devenir-ps/devenir-ps.component';
 import { ChoixDirectionComponent } from './choix-direction/choix-direction.component';
+// import { CalendrierPsComponent } from './calendrier-ps/calendrier-ps.component';
+import { DxSchedulerModule } from 'devextreme-angular'; 
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ForumInterceptor } from './forum.interceptor';
+import { ConditionsDuComponent } from './conditions-du/conditions-du.component';
+import { PolitiquedConfComponent } from './politiqued-conf/politiqued-conf.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +51,9 @@ import { ChoixDirectionComponent } from './choix-direction/choix-direction.compo
     ForumComponent,
     DevenirPSComponent,
     ChoixDirectionComponent,
+    ConditionsDuComponent,
+    PolitiquedConfComponent,
+    // CalendrierPsComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,9 +61,16 @@ import { ChoixDirectionComponent } from './choix-direction/choix-direction.compo
     HttpClientModule,
     FormsModule,
     DataTablesModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DxSchedulerModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ForumInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

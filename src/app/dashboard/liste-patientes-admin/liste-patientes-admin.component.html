@@ -28,21 +28,28 @@
         </a>
       </li>
       <li>
-        <a class="switch" [routerLink]="['/dashboard']">
+        <a class="switch" [routerLink]="['/gestionContenuAdmin']">
           <span class="fas fa-book-reader"></span>
           <span>Ressources</span>
         </a>
       </li>
-      <li>
+      <!-- <li>
         <a class="switch" [routerLink]="['/dashboard']">
           <span><i class="fas fa-comments"></i></span>
           <span>Gestion Contenu</span>
         </a>
+      </li> -->
+      <li>
+        
+        <a class="switch" [routerLink]="['/ajoutPersoAdmin']">
+          <span><i class="fas fa-user-plus"></i></span>
+          <span>Gestion Personel</span>
+        </a>
       </li>
       <li>
-        <a class="switch" [routerLink]="['/dashboard']">
+        <a class="switch" [routerLink]="['/contenuAdmin']">
           <span><i class="fas fa-user-plus"></i></span>
-          <span>Ajout Personel</span>
+          <span>Gestion Contenu</span>
         </a>
       </li>
       <div class="logout mt-5">
@@ -87,297 +94,67 @@
   </header>
 
   <main>
-    <div class="cards">
-      <div class="card-single">
-        <div>
-          <h1>50</h1>
-          <span>Patientes</span>
-        </div>
-        <div>
-          <span class="bi bi-person-fill"></span>
-        </div>
-      </div>
-      <div class="card-single">
-        <div>
-          <h1>50</h1>
-          <span>Patientes</span>
-        </div>
-        <div>
-          <span class="bi bi-person-fill"></span>
-        </div>
-      </div>
-      <div class="card-single">
-        <div>
-          <h1>12</h1>
-          <span>Personnels</span>
-        </div>
-        <div>
-          <span><i class="fas fa-hospital-user"></i></span>
-        </div>
-      </div>
-      <div class="card-single">
-        <div>
-          <h1>15</h1>
-          <span>Forums</span>
-        </div>
-        <div>
-          <span class="bi bi-person-fill"></span>
-        </div>
-      </div>
-
-    </div>
+    
 
     <div class="recent-grid">
       <div class="col-lg-12">
-        <div class="card table">
+        <div class="card table text-dark">
           <div class="card-header">
             <h4>Liste Patientes</h4>
           </div>
-          <!-- tableau liste patientes debut -->
-          
-          <!--tableau liste  patientes fin  -->
-          <!-- tableau datatable debut -->
         
           <!-- listes des patientes debut-->
-<table datatable [dtOptions]="dtOptions" class="row-border hover table" id="DataTabl">
+<table datatable [dtOptions]="dtOptions" class="row-border hover table" id="DataTabl" *ngIf="allPatient.length > 0">
   <thead>
     <tr>
-      <th>ID</th>
+      <th>Id </th>
       <th>Nom</th>
-      <th>Prenom</th>
-      <th>Age</th>
-      <th>Methode</th>
-      <th>Adresse</th>
+      <th>Email</th>
+      <th>Telephone</th>
+      <th>Role</th>
+      <!-- <th>Statut_compte</th> -->
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of allPatient">
+      <td> {{item.id}} </td>
+      <td>{{item.nom}}</td>
+      <td>{{item.email}}</td>
+      <td>{{item.telephone}}</td>
+      <td>{{item.role}}</td>
+      <!-- <td>{{item.statut_compte == 0 ? "Inactif" : "Actif"}}</td> -->
+      <td><i class="far fa-eye" (click)="getDossierMedical(item.id)" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#DossierMedical"></i></td>
+    </tr>
+  </tbody>
+</table>
+<table datatable [dtOptions]="dtOptions" class="row-border hover table" id="DataTabl" *ngIf="allPatient.length < 0">
+  <thead>
+    <tr>
+      <th>Id </th>
+      <th>Nom</th>
+      <th>Email</th>
+      <th>Telephone</th>
+      <th>Role</th>
+      <!-- <th>Statut_compte</th> -->
       <th>Actions</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>1</td>
-      <td>Foo</td>
-      <td>Bar</td>
-      <td>25</td>
-      <td>Pillule</td>
-      <td>Parcelles</td>
-      <td><i class="far fa-eye"></i></td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>Someone</td>
-      <td>Youknow</td>
-      <td>25</td>
-      <td>Pillule</td>
-      <td>Parcelles</td>
-      <td><i class="far fa-eye"></i></td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>Iamout</td>
-      <td>Ofinspiration</td>
-      <td>25</td>
-      <td>Pillule</td>
-      <td>Parcelles</td>
-      <td><i class="far fa-eye"></i></td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td>Yoda</td>
-      <td>Skywalker</td>
-      <td>25</td>
-      <td>Pillule</td>
-      <td>Parcelles</td>
-      <td><i class="far fa-eye"></i></td>
-    </tr>
-    <tr>
-      <td>5</td>
-      <td>Patrick</td>
-      <td>Dupont</td>
-      <td>25</td>
-      <td>Pillule</td>
-      <td>Parcelles</td>
-      <td><i class="far fa-eye"></i></td>
-    </tr>
-    <tr>
-      <td>6</td>
-      <td>Barack</td>
-      <td>Obama</td>
-      <td>25</td>
-      <td>Pillule</td>
-      <td>Parcelles</td>
-      <td><i class="far fa-eye"></i></td>
-    </tr>
-    <tr>
-      <td>7</td>
-      <td>François</td>
-      <td>Holland</td>
-      <td>25</td>
-      <td>Pillule</td>
-      <td>Parcelles</td>
-      <td><i class="far fa-eye"></i></td>
-    </tr>
-    <tr>
-      <td>8</td>
-      <td>Michel</td>
-      <td>Popo</td>
-      <td>25</td>
-      <td>Pillule</td>
-      <td>Parcelles</td>
-      <td><i class="far fa-eye"></i></td>
-    </tr>
-    <tr>
-      <td>9</td>
-      <td>Chuck</td>
-      <td>Norris</td>
-      <td>25</td>
-      <td>Pillule</td>
-      <td>Parcelles</td>
-      <td><i class="far fa-eye"></i></td>
-    </tr>
-    <tr>
-      <td>10</td>
-      <td>Simon</td>
-      <td>Robin</td>
-      <td>25</td>
-      <td>Pillule</td>
-      <td>Parcelles</td>
-      <td><i class="far fa-eye"></i></td>
-    </tr>
-    <tr>
-      <td>11</td>
-      <td>Louis</td>
-      <td>Lin</td>
-      <td>25</td>
-      <td>Pillule</td>
-      <td>Parcelles</td>
-      <td><i class="far fa-eye"></i></td>
-    </tr>
-    <tr>
-      <td>12</td>
-      <td>Zelda</td>
-      <td>Link</td>
-      <td>25</td>
-      <td>Pillule</td>
-      <td>Parcelles</td>
-      <td><i class="far fa-eye"></i></td>
+      <td colspan="6">Aucun patient disponible</td> 
     </tr>
   </tbody>
 </table>
+
 <!-- listes des patientes  fin-->
           <!-- tableau datatable fin -->
         </div>
 
       </div>
-      <!-- <div class="customers">
-        <div class="card"> -->
-          <!-- <div class="card-header">
-              <h4>Structures partenaires</h4>
-              <button>See all <span class="fas fa-arrow-right"></span> </button>
-          </div> -->
-          <!-- <div class="card-body">
-                <div class="customer">
-                  <div class="info">
-                    <img src="https://bit.ly/3bvT89p" height="40px" width="40px" alt="customer">
-                    <div>
-                      <h4>Malik Abushabab</h4>
-                      <small>CEO</small>
-                    </div>
-                  </div>
-                  <div class="contact">
-                      <span class="fas fa-user-circle"></span>
-                      <span class="fas fa-comment"></span>
-                      <span class="fas fa-phone-alt"></span>
-                    </div>
-                </div>
-                <div class="customer">
-                  <div class="info">
-                    <img src="https://bit.ly/3bvT89p" height="40px" width="40px" alt="customer">
-                    <div>
-                      <h4>Malik Abushabab</h4>
-                      <small>CEO</small>
-                    </div>
-                  </div>
-                  <div class="contact">
-                      <span class="fas fa-user-circle"></span>
-                      <span class="fas fa-comment"></span>
-                      <span class="fas fa-phone-alt"></span>
-                    </div>
-                </div>
-                <div class="customer">
-                  <div class="info">
-                    <img src="https://bit.ly/3bvT89p" height="40px" width="40px" alt="customer">
-                    <div>
-                      <h4>Malik Abushabab</h4>
-                      <small>CEO</small>
-                    </div>
-                  </div>
-                  <div class="contact">
-                      <span class="fas fa-user-circle"></span>
-                      <span class="fas fa-comment"></span>
-                      <span class="fas fa-phone-alt"></span>
-                    </div>
-                </div>
-                <div class="customer">
-                  <div class="info">
-                    <img src="https://bit.ly/3bvT89p" height="40px" width="40px" alt="customer">
-                    <div>
-                      <h4>Malik Abushabab</h4>
-                      <small>CEO</small>
-                    </div>
-                  </div>
-                  <div class="contact">
-                      <span class="fas fa-user-circle"></span>
-                      <span class="fas fa-comment"></span>
-                      <span class="fas fa-phone-alt"></span>
-                    </div>
-                </div>
-                <div class="customer">
-                  <div class="info">
-                    <img src="https://bit.ly/3bvT89p" height="40px" width="40px" alt="customer">
-                    <div>
-                      <h4>Malik Abushabab</h4>
-                      <small>CEO</small>
-                    </div>
-                  </div>
-                  <div class="contact">
-                      <span class="fas fa-user-circle"></span>
-                      <span class="fas fa-comment"></span>
-                      <span class="fas fa-phone-alt"></span>
-                    </div>
-                </div>
-                <div class="customer">
-                  <div class="info">
-                    <img src="https://bit.ly/3bvT89p" height="40px" width="40px" alt="customer">
-                    <div>
-                      <h4>Malik Abushabab</h4>
-                      <small>CEO</small>
-                    </div>
-                  </div>
-                  <div class="contact">
-                      <span class="fas fa-user-circle"></span>
-                      <span class="fas fa-comment"></span>
-                      <span class="fas fa-phone-alt"></span>
-                    </div>
-                </div>
-                <div class="customer">
-                  <div class="info">
-                    <img src="https://bit.ly/3bvT89p" height="40px" width="40px" alt="customer">
-                    <div>
-                      <h4>Malik Abushabab</h4>
-                      <small>CEO</small>
-                    </div>
-                  </div>
-                  <div class="contact">
-                      <span class="fas fa-user-circle"></span>
-                      <span class="fas fa-comment"></span>
-                      <span class="fas fa-phone-alt"></span>
-                    </div>
-                </div>
-              </div> -->
+    
             </div>
 
-        <!-- </div>
-        
-      </div>   -->
       
     </main>
   </div>
@@ -385,3 +162,45 @@
 <!-- popup pour deconnexion debut -->
 <!-- popup pour deconnexion  fin -->
 
+
+
+<div class="modal fade" id="DossierMedical" tabindex="-1" aria-labelledby="DossierMedicalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="DossierMedicalLabel">Dossier Medical</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body d-flex justify-content-between text-dark"  *ngIf="dossierMedicalPatient">
+      <div class="infPatiente">
+        <p>Nom: {{ dossierMedicalPatient.information_de_utilisateur.nom}} </p>
+        <p>Email: {{ dossierMedicalPatient.information_de_utilisateur.email}} </p>
+        <p>Telephone: {{ dossierMedicalPatient.information_de_utilisateur.telephone}} </p>
+        <p>Role: {{ dossierMedicalPatient.information_de_utilisateur.role}} </p>
+        <p>Age: {{ dossierMedicalPatient.information_du_dossier_medical.age}} </p>
+        <p>Statut: {{ dossierMedicalPatient.information_du_dossier_medical.statut}} </p>
+        <!-- <p *ngIf="priseEnChargePar">Pris en charge par:  {{ this.priseEnChargePar.user.structure}}</p> -->
+
+      </div>
+      <div class="infDossierMedical">
+        <p>numero_Identification:  {{ dossierMedicalPatient.information_du_dossier_medical.numero_Identification}}</p>
+        <p>Poste avortement:  {{ dossierMedicalPatient.information_du_dossier_medical.post_avortement}}</p>
+        <p>Poste partum:  {{ dossierMedicalPatient.information_du_dossier_medical.post_partum}}</p>
+        <p>Methode en cours:  {{ dossierMedicalPatient.information_du_dossier_medical.methode_en_cours}}</p>
+        <p>Methode choisie:  {{ dossierMedicalPatient.information_du_dossier_medical.methode_choisie}}</p>
+        <p>Effet indesirables:  {{ dossierMedicalPatient.information_du_dossier_medical.effets_indesirables}}</p>
+        <p>Raison de la visite:  {{ dossierMedicalPatient.information_du_dossier_medical.raison_de_la_visite}}</p>
+        <p>Observations/ Antecedents:  {{ dossierMedicalPatient.information_du_dossier_medical.observation}}</p>
+        <p>indications:  {{ dossierMedicalPatient.information_du_dossier_medical.indication}}</p>
+        <p>Date de RV:  {{ dossierMedicalPatient.information_du_dossier_medical.date_visite}}</p>
+        <p>Prochain RV:  {{ dossierMedicalPatient.information_du_dossier_medical.date_prochain_rv}}</p>
+        <p *ngIf="priseEnChargePar">Pris en charge par:  {{ this.priseEnChargePar.user.nom}}</p>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+        <button type="button" class="btn btn-primary">Imprimer</button>
+      </div>
+    </div>
+  </div>
+</div>

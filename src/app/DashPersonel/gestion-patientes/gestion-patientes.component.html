@@ -2,61 +2,49 @@
 
 
 <div class="sidebar">
-    <div class="sidebar-brand">
-      <!-- <h1> <span class="fab fa-asymmetrik"> </span> <span>Debbo</span>
-      </h1> -->
-      <!-- <div class="img"
-        style="background-image: url(//src/assets/img/Logo2.png);">
-      </div> -->
-      <img src="/src/assets/Logo1.png" alt="">
-    </div>
-    
-    <div class="sidebar-menu">
-      <div class="image"><img src="/assets/DEM-removebg-preview.png" alt=""></div>
+  <div class="sidebar-brand">
+    <!-- <h1> <span class="fab fa-asymmetrik"> </span> <span>Debbo</span>
+    </h1> -->
+    <!-- <div class="img"
+      style="background-image: url(//src/assets/img/Logo2.png);">
+    </div> -->
+    <img src="/src/assets/Logo1.png" alt="">
+  </div>
   
-      <ul>
-        <li>
-          <a class="switch" [routerLink]="['/dashboard']" >
-            <span class="fas fa-tachometer-alt"></span>
+  <div class="sidebar-menu">
+    <div class="image"><img src="/assets/DEM-removebg-preview.png" alt=""></div>
+
+    <ul>
+      <li>
+          <a  class="switch" [routerLink]="['/gestionRVPS']" >
+            <span class="fas fa-users" ></span>
             <span>Gestion RV</span>
           </a>
         </li>
-        <li>
-          <a  class="active" >
-            <span class="fas fa-users" ></span>
-            <span>Gestion Patientes</span>
-          </a>
-        </li>
-        <li>
-          <a class="switch" [routerLink]="['/dashboard']">
-            <span class="fas fa-book-reader"></span>
-            <span>Ressources</span>
-          </a>
-        </li>
-        <li>
-          <a class="switch" [routerLink]="['/dashboard']">
-            <span><i class="fas fa-comments"></i></span>
-            <span>Mon Cycle</span>
-          </a>
-        </li>
-        <li>
-          <a class="switch" [routerLink]="['/dashboard']">
-            <span><i class="fas fa-user-plus"></i></span>
-            <span>Forum</span>
-          </a>
-        </li>
-        <div class="logout mt-5">
-          <a [routerLink]="['/accueil']" routerLinkActive="router-link-active">
-            <i class="fas fa-sign-out-alt"></i> Deconnexion
+      <li>
+        <a class="active"  >
+          <span class="fas fa-tachometer-alt"></span>
+          <span>Gestion Patientes</span>
         </a>
-        </div>
-      
-      </ul>
-  
-    </div>
-  </div>    
-  
-  <!-- sidebar Fin -->
+      </li>
+      <li>
+        <a class="switch" [routerLink]="['/ressourcesPS']">
+          <span class="fas fa-book-reader"></span>
+          <span>Ressources</span>
+        </a>
+      </li>
+      <div class="logout mt-5">
+        <a [routerLink]="['/accueil']" routerLinkActive="router-link-active">
+          <i class="fas fa-sign-out-alt"></i> Deconnexion
+      </a>
+      </div>
+    
+    </ul>
+
+  </div>
+</div>    
+
+<!-- sidebar Fin -->
   
   <!-- contenuDash debut -->
   

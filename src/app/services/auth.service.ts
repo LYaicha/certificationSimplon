@@ -24,7 +24,9 @@ export class AuthService {
   register(user:any){
     return this.http.post(`${apiUrl}/register_utilisateur`, user)
   }
-  
+  registerPs(PS:any){
+    return this.http.post(`${apiUrl}/create_personnelsante`, PS)
+  }
   // methode pour la connexion
 
 }

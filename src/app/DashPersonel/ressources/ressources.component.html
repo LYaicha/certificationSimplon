@@ -17,33 +17,21 @@
   
       <ul>
         <li>
-          <a class="switch" [routerLink]="['/dashboard']" >
+          <a class="switch" [routerLink]="['/gestionRVPS']" >
             <span class="fas fa-tachometer-alt"></span>
             <span>Gestion RV</span>
           </a>
         </li>
         <li>
-          <a  class="active" >
+          <a class="switch"  [routerLink]="['/gestionPatientePS']" >
             <span class="fas fa-users" ></span>
             <span>Gestion Patientes</span>
           </a>
         </li>
         <li>
-          <a class="switch" [routerLink]="['/dashboard']">
+          <a  class="active">
             <span class="fas fa-book-reader"></span>
             <span>Ressources</span>
-          </a>
-        </li>
-        <li>
-          <a class="switch" [routerLink]="['/dashboard']">
-            <span><i class="fas fa-comments"></i></span>
-            <span>Mon Cycle</span>
-          </a>
-        </li>
-        <li>
-          <a class="switch" [routerLink]="['/dashboard']">
-            <span><i class="fas fa-user-plus"></i></span>
-            <span>Forum</span>
           </a>
         </li>
         <div class="logout mt-5">
@@ -88,45 +76,7 @@
     </header>
   
     <main>
-      <div class="cards">
-        <div class="card-single">
-          <div>
-            <h1>50</h1>
-            <span>Patientes</span>
-          </div>
-          <div>
-            <span class="bi bi-person-fill"></span>
-          </div>
-        </div>
-        <div class="card-single">
-          <div>
-            <h1>50</h1>
-            <span>Patientes</span>
-          </div>
-          <div>
-            <span class="bi bi-person-fill"></span>
-          </div>
-        </div>
-        <div class="card-single">
-          <div>
-            <h1>12</h1>
-            <span>Personnels</span>
-          </div>
-          <div>
-            <span><i class="fas fa-hospital-user"></i></span>
-          </div>
-        </div>
-        <div class="card-single">
-          <div>
-            <h1>15</h1>
-            <span>Forums</span>
-          </div>
-          <div>
-            <span class="bi bi-person-fill"></span>
-          </div>
-        </div>
-  
-      </div>
+
   
       <div class="recent-grid">
         <div class="col-lg-12">
@@ -140,12 +90,10 @@
             <!-- tableau datatable debut -->
           <!-- categories -->
 <div class="categories w-50 d-flex justify-content-between mb-5 m-auto">
-    <button class="btn btnCategorie" btnCategorieActive [ngClass]="{'fond-btn': boutonActif === 1}"(click)="showComponant('all')" (click)="boutonActif = 1">Tous les projets</button>
-    <button class="btn btnCategorie">Santé</button>
-    <button class="btn btnCategorie" [ngClass]="{'fond-btn': boutonActif === 2}"(click)="showComponant('technologie')" (click)="boutonActif = 2">Technologie</button>
-    <button class="btn btnCategorie" [ngClass]="{'fond-btn': boutonActif === 3}"(click)="showComponant('mode')" (click)="boutonActif = 3">Mode</button>
-    <button class="btn btnCategorie">Agriculture</button>
-    <button class="btn btnCategorie">Education</button>
+    <button class="btn btnCategorie" btnCategorieActive [ngClass]="{'fond-btn': boutonActif === 1}"(click)="showComponant('all')" (click)="boutonActif = 1" style>Documents Officiels </button>
+    <!-- <button class="btn btnCategorie">Santé</button> -->
+    <button class="btn btnCategorie" [ngClass]="{'fond-btn': boutonActif === 2}"(click)="showComponant('technologie')" (click)="boutonActif = 2">Ressources</button>
+    
 </div>
 
 
@@ -161,28 +109,22 @@
         <ul class="dropdown-menu">
             <li>
                 <button class="dropdown-item" [ngClass]="{'fond-btn': boutonActif === 1}"(click)="showComponant('all')"
-                 (click)="boutonActif = 1">Tous les projets</button>
+                  (click)="boutonActif = 1">Documents off</button>
             </li>
             <li>
                 <button class="dropdown-item" [ngClass]="{'fond-btn': boutonActif === 2}"(click)="showComponant('technologie')" 
-                (click)="boutonActif = 2">Technologie</button>
+                (click)="boutonActif = 2">Ressources</button>
             </li>
-            <li>
-                <button class="dropdown-item" [ngClass]="{'fond-btn': boutonActif === 3}"(click)="showComponant('mode')"
-                 (click)="boutonActif = 3">Mode</button>
-            </li>
-            <li>
-                <button class="dropdown-item" [ngClass]="{'fond-btn': boutonActif === 4}" (click)="showComponant('sante')"
-                    (click)="boutonActif = 4">Santé</button>
-            </li>
+      
+        
             <li>
                 <button class="dropdown-item" [ngClass]="{'fond-btn': boutonActif === 5}" (click)="showComponant('agriculture')"
                     (click)="boutonActif = 5">Agriculture</button>
             </li>
-            <li>
+            <!-- <li>
                 <button class="dropdown-item" [ngClass]="{'fond-btn': boutonActif === 6}" (click)="showComponant('education')"
                     (click)="boutonActif = 6">Education</button>
-            </li>
+            </li> -->
         </ul>
     </div>
 
@@ -190,17 +132,16 @@
         <div class="col-12 col-md-4">
             <div class="carte p-3 shadow" id="all" *ngIf="currentContent === 'all'">
                 <div class="imgCarte mb-3">
-                    <img src="../../../assets/images/bannieres/ban5.jpg" class="card-img-top" alt="...">
+                    <img src="https://img.freepik.com/photos-gratuite/gros-plan-veterinaire-faisant-tests_23-2149143890.jpg?size=626&ext=jpg&ga=GA1.2.1463458479.1706261075&semt=ais" class="card-img-top" class="card-img-top" alt="...">
                 </div>
                 <div class="p-0">
-                    <h5 class="text-center carteTitre fw-bold">Technologie</h5>
-                    <p class="text-justify">
-                        C'est génial que vous soyez intéressé par un projet lié à la technologie ! Les projets technologiques peuvent couvrir
-                        une variété de domaines en fonction de vos intérêts spécifiques
+                    <h5 class="text-center carteTitre fw-bold">Santé Reproductive</h5>
+                    <p class="text-justify text-black">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi fugit aspernatur ab.
                     </p>
                     <div class="detail d-flex">
                         <button class="btn w-100">
-                            <a href="#" class="detailLink fw-bold" routerLink="/login">Consulter</a>
+                            <a  class="detailLink fw-bold" routerLink="/login">Consulter</a>
                         </button>
                     </div>
                 </div>
@@ -209,18 +150,16 @@
         <div class="col-12 col-md-4">
             <div class="carte p-3 shadow" id="technologie" *ngIf="currentContent === 'technologie'">
                 <div class="imgCarte mb-3">
-                    <img src="../../../assets/images/bannieres/ban5.jpg" class="card-img-top" alt="...">
+                    <img src="https://img.freepik.com/photos-gratuite/gros-plan-veterinaire-faisant-tests_23-2149143890.jpg?size=626&ext=jpg&ga=GA1.2.1463458479.1706261075&semt=ais" class="card-img-top" alt="...">
                 </div>
                 <div class="p-0">
-                    <h5 class="text-center carteTitre fw-bold">Technologie</h5>
-                    <p class="text-justify">
-                        C'est génial que vous soyez intéressé par un projet lié à la technologie ! Les projets technologiques
-                        peuvent couvrir
-                        une variété de domaines en fonction de vos intérêts spécifiques
+                    <h5 class="text-center carteTitre fw-bold">Santé Reproductive</h5>
+                    <p class="text-justify text-black">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi fugit aspernatur ab.
                     </p>
                     <div class="detail d-flex">
                         <button class="btn w-100">
-                            <a href="#" class="detailLink fw-bold">Consulter</a>
+                            <a class="detailLink fw-bold">Consulter</a>
                         </button>
                     </div>
                 </div>
@@ -229,18 +168,16 @@
         <div class="col-12 col-md-4">
             <div class="carte p-3 shadow" id="technologie" *ngIf="currentContent === 'technologie'">
                 <div class="imgCarte mb-3">
-                    <img src="../../../assets/images/bannieres/ban5.jpg" class="card-img-top" alt="...">
+                    <img src="https://img.freepik.com/photos-gratuite/souriante-belle-jeune-femme-se-rejouit-sa-grossesse-heureuse-avoir-bebe-tient-petites-chaussettes-ventre-porte-vetements-decontractes-pour-enceinte-regarde-cote-se-tient-interieur-concept-maternite-heureuse_273609-39608.jpg?size=626&ext=jpg&ga=GA1.2.1463458479.1706261075&semt=ais" class="card-img-top" alt="...">
                 </div>
                 <div class="p-0">
-                    <h5 class="text-center carteTitre fw-bold">Technologie</h5>
-                    <p class="text-justify">
-                        C'est génial que vous soyez intéressé par un projet lié à la technologie ! Les projets technologiques
-                        peuvent couvrir
-                        une variété de domaines en fonction de vos intérêts spécifiques
+                    <h5 class="text-center carteTitre fw-bold">Santé Reproductive</h5>
+                    <p class="text-justify text-black">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi fugit aspernatur ab.
                     </p>
                     <div class="detail d-flex">
                         <button class="btn w-100">
-                            <a href="#" class="detailLink fw-bold">Consulter</a>
+                            <a class="detailLink fw-bold">Consulter</a>
                         </button>
                     </div>
                 </div>

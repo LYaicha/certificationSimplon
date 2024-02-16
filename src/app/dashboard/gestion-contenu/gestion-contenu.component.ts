@@ -7,4 +7,17 @@ import { Component } from '@angular/core';
 })
 export class GestionContenuComponent {
 
+  
+  // Gestion bouton
+  boutonActif = 1;
+
+  // Initialiser le contenu actuel
+  currentContent: string = 'all';
+
+  // Mettre à jour le contenu actuel
+  showComponant(contentId: string): void {
+    this.currentContent = contentId; 
+  }
+
 }
+
