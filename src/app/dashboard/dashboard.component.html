@@ -1,21 +1,16 @@
 <input type="checkbox" id="nav-toggle">
 
 <div class="sidebar">
-    <div class="sidebar-brand">
-      <!-- <h1> <span class="fab fa-asymmetrik"> </span> <span>Debbo</span>
-      </h1> -->
-      <!-- <div class="img"
-        style="background-image: url(//src/assets/img/Logo2.png);">
-      </div> -->
-      <img src="/src/assets/img/Logo2.png" alt="">
-    </div>
+  <div class="sidebar-brand">
+    <img src="../../../assets/img/Logo2.png" alt="">
+  </div>
     
     <div class="sidebar-menu">
       <div class="image"><img src="/assets/DEM-removebg-preview.png" alt=""></div>
 
       <ul>
         <li>
-          <a href="#" class="active">
+          <a class="active">
             <span class="fas fa-tachometer-alt"></span>
             <span>Tableau de board</span>
           </a>
@@ -27,25 +22,25 @@
           </a>
         </li>
         <li>
-          <a href="#">
-            <span class="fas fa-book-reader"  [routerLink]="['/gestionContenuAdmin']"></span>
+          <a  [routerLink]="['/gestionContenuAdmin']">
+            <span class="fas fa-book-reader"></span>
             <span>Ressources</span>
           </a>
         </li>
         <!-- <li>
-          <a href="#">
-            <span><i class="fas fa-comments" [routerLink]="['/gestionContenuAdmin']"></i></span>
+          <a  [routerLink]="['/gestionContenuAdmin']" >
+            <span><i class="fas fa-comments"></i></span>
             <span>Gestion Contenu</span>
           </a>
         </li> -->
         <li>
-          <a href="#">
-            <span><i class="fas fa-user-plus"  [routerLink]="['/ajoutPersoAdmin']"></i></span>
-            <span>Ajout Personel</span>
+          <a  [routerLink]="['/ajoutPersoAdmin']">
+            <span><i class="fas fa-user-plus"  ></i></span>
+            <span>Gestion Personnel</span>
           </a>
         </li>
         <div class="logout mt-5">
-          <a class="switch" [routerLink]="['/accueil']"   class="logout">
+          <a (click)="logout()">
             <i class="fas fa-sign-out-alt"></i> Deconnexion
         </a>
         </div>
@@ -57,18 +52,7 @@
 
 <div class="main-content">
   <header class="headDash">
-    <!-- <h2>
-      <label for="nav-toggle">
-        <span class="fas fa-bars"></span>
-      </label>
-      Dashboard
-    </h2> -->
-
-    <!-- <div class="search-wrapper">
-      <span class="fas fa-search"> </span>
-      <input type="search" placeholder="Search..." />
-      
-    </div> -->
+  
     <div class="fa-bell">
       <i class="fa-solid fa-bell"></i>
     </div>
@@ -86,7 +70,7 @@
       <div class="card-single">
         <div>
           <h1>50</h1>
-          <span>Patientes</span>
+          <span class="text-danger">Patientes</span>
         </div>
         <div>
           <span class="bi bi-person-fill"></span>
@@ -95,7 +79,7 @@
       <div class="card-single">
         <div>
           <h1>50</h1>
-          <span>Patientes</span>
+          <span class="text-danger">Patientes</span>
         </div>
         <div>
           <span class="bi bi-person-fill"></span>
@@ -104,7 +88,7 @@
       <div class="card-single">
         <div>
           <h1>12</h1>
-          <span>Personnels</span>
+          <span class="text-danger">Personnels</span>
         </div>
         <div>
           <span><i class="fas fa-hospital-user"></i></span>
@@ -112,11 +96,11 @@
       </div>
       <div class="card-single">
         <div>
-          <h1>15</h1>
-          <span>Forums</span>
+          <h1 class="text-dark" >15</h1>
+          <span class="text-danger">Structures Partenaires</span>
         </div>
         <div>
-          <span class="bi bi-person-fill"></span>
+          <span class="text-dark"><i class="fas fa-hospital-user"></i></span>
         </div>
       </div>
 
@@ -308,7 +292,7 @@
         <!-- </div>
         
       </div>   -->
-      <div class="card-group">
+      <!-- <div class="card-group">
           <div class="card">
             <img src="/assets/image.png" class="card-img-top" alt="...">
             <div class="card-body">
@@ -328,6 +312,6 @@
             </div>
           
           </div>
-        </div>
+        </div> -->
     </main>
   </div>

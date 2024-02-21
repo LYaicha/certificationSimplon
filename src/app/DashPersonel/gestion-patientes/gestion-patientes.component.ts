@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 import { PatientService } from 'src/app/services/patient.service';
 
 @Component({
@@ -12,7 +14,8 @@ export class GestionPatientesComponent {
     // Les propriétés du patient
   };
 
-  constructor(private patientService: PatientService) {}
+  constructor(private patientService: PatientService,  private route: Router,
+    private authservice: AuthService,) {}
 
   // ajouterPatient(): void {
   //   this.patientService.createPatient(this.patient).subscribe(
@@ -24,4 +27,13 @@ export class GestionPatientesComponent {
   //     }
   //   );
   // }
+  
+  logout() {
+    this.authservice.logout().subscribe((response) => {
+      console.log(response);
+      localStorage.removeItem('access_token');
+
+      this.route.navigate(['/accueil']);
+    });
+  }
 }

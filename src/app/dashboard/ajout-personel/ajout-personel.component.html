@@ -3,65 +3,53 @@
 
 <div class="sidebar">
     <div class="sidebar-brand">
-        <!-- <h1> <span class="fab fa-asymmetrik"> </span> <span>Debbo</span>
-        </h1> -->
-        <!-- <div class="img"
-        style="background-image: url(//src/assets/img/Logo2.png);">
-        </div> -->
-        <img src="/src/assets/Logo1.png" alt="">
+      <img src="../../../assets/img/Logo2.png" alt="">
     </div>
-    
-    <div class="sidebar-menu">
+      
+      <div class="sidebar-menu">
         <div class="image"><img src="/assets/DEM-removebg-preview.png" alt=""></div>
-
+  
         <ul>
-        <li>
-            <a class="switch" [routerLink]="['/dashboard']" >
-            <span class="fas fa-tachometer-alt"></span>
-            <span>Tableau de board</span>
+          <li>
+            <a class="switch" [routerLink]="['/dashboard']"  >
+              <span class="fas fa-tachometer-alt"></span>
+              <span>Tableau de board</span>
             </a>
-        </li>
-        <li>
-            <a  [routerLink]="['/listepatientesAdmin']" >
-            <span class="fas fa-users" ></span>
-            <span>Listes patientes</span>
+          </li>
+          <li>
+            <a class="switch" [routerLink]="['/listepatientesAdmin']"  >
+              <span class="fas fa-users" ></span>
+              <span>Listes patientes</span>
             </a>
-        </li>
-        <li>
-            <a class="switch" [routerLink]="['/gestionContenuAdmin']">
-            <span class="fas fa-book-reader"></span>
-            <span>Ressources</span>
+          </li>
+          <!-- <li>
+            <a  [routerLink]="['/gestionContenuAdmin']">
+              <span class="fas fa-book-reader"></span>
+              <span>Ressources</span>
             </a>
-        </li>
-        <!-- <li>
-            <a class="switch" [routerLink]="['/dashboard']">
-            <span><i class="fas fa-comments"></i></span>
-            <span>Gestion Contenu</span>
+          </li> -->
+          <li>
+            <a  [routerLink]="['/gestionContenuAdmin']" >
+              <span><i class="fas fa-comments"></i></span>
+              <span>Gestion Contenu</span>
             </a>
-        </li> -->
-        <li>
-            
-            <a class="active" >
-            <span><i class="fas fa-user-plus"></i></span>
-            <span>Gestion Personel</span>
+          </li>
+          <li>
+            <a  class="active">
+              <span><i class="fas fa-user-plus"  ></i></span>
+              <span>Gestion Personnel</span>
             </a>
-        </li>
-        <li>
-            <a class="switch" [routerLink]="['/contenuAdmin']">
-            <span><i class="fas fa-user-plus"></i></span>
-            <span>Gestion Contenu</span>
-            </a>
-        </li>
-        <div class="logout mt-5">
-            <a [routerLink]="['/accueil']" routerLinkActive="router-link-active">
-            <i class="fas fa-sign-out-alt"></i> Deconnexion
-        </a>
-        </div>
-    
-    </ul>
-    </div>
-    </div>    
-
+          </li>
+          <div class="logout mt-5">
+            <a (click)="logout()">
+              <i class="fas fa-sign-out-alt"></i> Deconnexion
+          </a>
+          </div>
+        
+        </ul>
+  
+      </div>
+  </div>  
 <!-- sidebar Fin -->
 
 <!-- contenuDash debut -->
@@ -81,15 +69,16 @@
         
     </div> -->
     <div class="fa-bell">
+        
         <i class="fa-solid fa-bell"></i>
     </div>
 
-    <div class="user-wrapper">
+    <!-- <div class="user-wrapper">
     <img src="/src/assets/imgs/customer01.jpg" width="40px" height="40px" alt="profile-img">
     <div class="">
         <h5>Admin</h5>
     </div>
-    </div>
+    </div> -->
     </header>
 
     <main>
@@ -103,7 +92,7 @@
             </div>
             
             <!-- listes des patientes debut-->
-  <table datatable [dtOptions]="dtOptions" class="row-border hover table" id="DataTabl" *ngIf="allPatient.length > 0">
+  <table datatable [dtOptions]="dtOptions" class="row-border hover table" id="DataTabl" *ngIf="allPersSante.length > 0">
     <thead>
     <tr>
         <th>Id </th>
@@ -116,7 +105,7 @@
     </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of allPatient">
+      <tr *ngFor="let item of allPersSante">
         <td> {{item.id}} </td>
         <td>{{item.nom}}</td>
         <td>{{item.email}}</td>
@@ -127,7 +116,7 @@
     </tr>
     </tbody>
 </table>
-  <table datatable [dtOptions]="dtOptions" class="row-border hover table" id="DataTabl" *ngIf="allPatient.length < 0">
+  <table datatable [dtOptions]="dtOptions" class="row-border hover table" id="DataTabl" *ngIf="allPersSante.length < 0">
     <thead>
     <tr>
         <th>Id </th>

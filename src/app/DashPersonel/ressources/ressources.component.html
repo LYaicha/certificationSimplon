@@ -35,7 +35,7 @@
           </a>
         </li>
         <div class="logout mt-5">
-          <a [routerLink]="['/accueil']" routerLinkActive="router-link-active">
+          <a (click)="logout()">
             <i class="fas fa-sign-out-alt"></i> Deconnexion
         </a>
         </div>

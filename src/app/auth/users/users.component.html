@@ -23,13 +23,19 @@
                             </div>
                             <div class="form-group mb-3">
                                 <label class="label" for="email">Email</label>
-                                <input type="text" class="form-control" id="email" formControlName="email" placeholder="Email" required name="email"
-                                >
+                                <input type="text" class="form-control" id="email" formControlName="email" placeholder="Email" required name="email">
+                                <p class="text-danger" >{{error}}</p>
+                                <!-- <div class="text-danger" *ngIf="registerForm.get('email'),[.Validators.required, Validators.pattern]">L'email est requis</div> -->
+                                <!-- <div class="text-danger" *ngIf="FormGroup.get('email').errors?.pattern">L'email n'est pas valide</div> -->
+
                             </div>
                             <div class="form-group mb-3">
                                 <label class="label" for="password">Mot de passe</label>
                                 <input type="password" class="form-control" formControlName="password" placeholder="mot de passe" required id="password"
                                     name="password">
+                                <!-- <div class="text-danger" *ngIf="FormGroup.get('password').errors?.required">Le mot de passe est requis</div> -->
+                                <!-- <div class="text-danger" *ngIf="FormGroup.get('password').errors?.validator.min">Le mot de passe doit etre superieur à 8 caractéres!</div> -->
+                                <!-- <div class="text-danger" *ngIf="FormGroup.get('password').errors?.validator.max">Le mot de passe doit etre inférieure à 20 caractéres!</div> -->
                             </div>
                             <div class="form-group mb-3">
                                 <label class="label" for="telephone">Telephone</label>

@@ -4,59 +4,54 @@
 
 
 <div class="sidebar">
-    <div class="sidebar-brand">
-      <!-- <h1> <span class="fab fa-asymmetrik"> </span> <span>Debbo</span>
-      </h1> -->
-      <!-- <div class="img"
-        style="background-image: url(//src/assets/img/Logo2.png);">
-      </div> -->
-      <img src="/src/assets/Logo1.png" alt="">
-    </div>
+  <div class="sidebar-brand">
+    <img src="../../../assets/img/Logo2.png" alt="">
+  </div>
     
     <div class="sidebar-menu">
       <div class="image"><img src="/assets/DEM-removebg-preview.png" alt=""></div>
-  
+
       <ul>
         <li>
-          <a class="switch" [routerLink]="['/dashboard']" >
+          <a  class="switch" [routerLink]="['/dashboard']">
             <span class="fas fa-tachometer-alt"></span>
-            <span>Gestion RV</span>
+            <span>Tableau de board</span>
           </a>
         </li>
         <li>
-          <a  class="active" >
+          <a  class="switch" [routerLink]="['/listepatientesAdmin']">
             <span class="fas fa-users" ></span>
-            <span>Gestion Patientes</span>
+            <span>Listes patientes</span>
           </a>
         </li>
-        <li>
-          <a class="switch" [routerLink]="['/dashboard']">
-            <span class="fas fa-book-reader"></span>
+        <!-- <li>
+          <a  class="active">
+            <span class="fas fa-book-reader"  [routerLink]="['/gestionContenuAdmin']"></span>
             <span>Ressources</span>
           </a>
-        </li>
+        </li> -->
         <li>
-          <a class="switch" [routerLink]="['/dashboard']">
+          <a  class="active" >
             <span><i class="fas fa-comments"></i></span>
-            <span>Mon Cycle</span>
+            <span>Gestion Contenu</span>
           </a>
         </li>
         <li>
-          <a class="switch" [routerLink]="['/dashboard']">
-            <span><i class="fas fa-user-plus"></i></span>
-            <span>Forum</span>
+          <a   [routerLink]="['/ajoutPersoAdmin']">
+            <span><i class="fas fa-user-plus" ></i></span>
+            <span>Gestion Personnel</span>
           </a>
         </li>
         <div class="logout mt-5">
-          <a [routerLink]="['/accueil']" routerLinkActive="router-link-active">
+          <a (click)="logout()">
             <i class="fas fa-sign-out-alt"></i> Deconnexion
         </a>
         </div>
       
       </ul>
-  
+
     </div>
-  </div>    
+</div>    
   
   <!-- sidebar Fin -->
   
@@ -141,12 +136,12 @@
             <!-- tableau datatable debut -->
           <!-- categories -->
 <div class="categories w-50 d-flex justify-content-between mb-5 m-auto">
-    <button class="btn btnCategorie" btnCategorieActive [ngClass]="{'fond-btn': boutonActif === 1}"(click)="showComponant('all')" (click)="boutonActif = 1">Tous les projets</button>
-    <button class="btn btnCategorie">Santé</button>
-    <button class="btn btnCategorie" [ngClass]="{'fond-btn': boutonActif === 2}"(click)="showComponant('technologie')" (click)="boutonActif = 2">Technologie</button>
-    <button class="btn btnCategorie" [ngClass]="{'fond-btn': boutonActif === 3}"(click)="showComponant('mode')" (click)="boutonActif = 3">Mode</button>
-    <button class="btn btnCategorie">Agriculture</button>
-    <button class="btn btnCategorie">Education</button>
+    <!-- <button class="btn btnCategorie" btnCategorieActive [ngClass]="{'fond-btn': boutonActif === 1}"(click)="showComponant('all')" (click)="boutonActif = 1">Tous les projets</button> -->
+    <!-- <button class="btn btnCategorie">Santé</button> -->
+    <button class="btn btnCategorie" [ngClass]="{'fond-btn': boutonActif === 2}"(click)="showComponant('technologie')" (click)="boutonActif = 2">Blogs</button>
+    <button class="btn btnCategorie" [ngClass]="{'fond-btn': boutonActif === 3}"(click)="showComponant('mode')" (click)="boutonActif = 3">Ressouces</button>
+    <!-- <button class="btn btnCategorie">Agriculture</button> -->
+    <!-- <button class="btn btnCategorie">Education</button> -->
 </div>
 
 
@@ -230,7 +225,7 @@
         <div class="col-12 col-md-4">
             <div class="carte p-3 shadow" id="technologie" *ngIf="currentContent === 'technologie'">
                 <div class="imgCarte mb-3">
-                    <img src="../../../assets/images/bannieres/ban5.jpg" class="card-img-top" alt="...">
+                    <img src="https://www.shutterstock.com/fr/image-photo/red-highlighter-ovulation-day-mark-on-730095670" class="card-img-top" alt="...">
                 </div>
                 <div class="p-0">
                     <h5 class="text-center carteTitre fw-bold">Technologie</h5>

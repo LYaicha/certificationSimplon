@@ -12,6 +12,7 @@ import Swal from 'sweetalert2';
 })
 export class PersonnelComponent {
   registerForm!:FormGroup
+  error!:string 
   constructor(private fb: FormBuilder, private authService: AuthService, private route: Router){
 this.registerForm=this.fb.group({
   nom:['',Validators.required],
@@ -33,6 +34,11 @@ this.registerForm=this.fb.group({
       });
       this.route.navigateByUrl('/login')
       console.log(response);
+    },
+    (error)=>{
+      console.log(error.error.errors.email);
+      this.error=error.error.errors.email
+      
     })
   }
 }

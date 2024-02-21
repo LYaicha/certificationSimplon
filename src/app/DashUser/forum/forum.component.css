@@ -97,18 +97,25 @@
     margin-left: 20%;
   }
   .sidebar-brand{
-    height: 90px;
-    padding: 1rem 0rem 1rem 2rem;
-    /* color: #02273D; */
+    height: 120px;
+    width: 120px;
+    margin: 0 auto;
   }
+
   .sidebar-brand img{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+
   }
-  .sidebar-brand span{
-    display: inline-block;
-    padding-right: 1rem;
+  .sidebar-brand{
+    height: 120px;
+    width: 120px;
+    margin: 0 auto;
   }
+
   .sidebar-menu li{
     width: 100%;
     margin-bottom: 1.7rem;
@@ -543,5 +550,13 @@
     font-size: 20px;
     border-radius: 10px;
   }
-  
-  
+
+  .btnColore{
+    background-color: #E75761;
+    color: white;
+  }
+  .btnColor{
+    background-color: white;
+    color: #E75761;
+    font-weight: bold;
+  }

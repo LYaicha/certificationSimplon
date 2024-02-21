@@ -15,10 +15,10 @@ import { GestionRVComponent } from './DashPersonel/gestion-rv/gestion-rv.compone
 import { RessourcesComponent } from './DashPersonel/ressources/ressources.component';
 import { MonCycleComponent } from './DashUser/mon-cycle/mon-cycle.component';
 import { ForumComponent } from './DashUser/forum/forum.component';
-import { DevenirPSComponent } from './DashUser/devenir-ps/devenir-ps.component';
 import { ChoixDirectionComponent } from './choix-direction/choix-direction.component';
 import { ConditionsDuComponent } from './conditions-du/conditions-du.component';
 import { PolitiquedConfComponent } from './politiqued-conf/politiqued-conf.component';
+import { AuthGuard } from './auth.guard';
 
 
 const routes: Routes = [
@@ -26,16 +26,15 @@ const routes: Routes = [
   {path:"inscriptionperson" , component:PersonnelComponent},
   {path:"inscriptionuser" , component:UsersComponent},
   {path:"login", component:LoginComponent},
-  {path:"dashboard", component:DashboardComponent},
-  {path:"listepatientesAdmin" , component:ListePatientesAdminComponent},
-  {path:"ajoutPersoAdmin" , component:AjoutPersonelComponent},
-  {path:"gestionContenuAdmin" , component:GestionContenuComponent},
-  {path:"gestionPatientePS" , component: GestionPatientesComponent},
-  {path:"gestionRVPS" , component:GestionRVComponent},
-  {path:"ressourcesPS" , component:RessourcesComponent},
-  {path:"monCycle" , component: MonCycleComponent},
-  {path:"Forum", component:ForumComponent},
-  {path:"devenirPs", component: DevenirPSComponent},
+  {path:"dashboard", component:DashboardComponent,  canActivate: [AuthGuard] },
+  {path:"listepatientesAdmin" , component:ListePatientesAdminComponent , canActivate: [AuthGuard] },
+  {path:"ajoutPersoAdmin" , component:AjoutPersonelComponent ,  canActivate: [AuthGuard] },
+  {path:"gestionContenuAdmin" , component:GestionContenuComponent, canActivate: [AuthGuard] },
+  {path:"gestionPatientePS" , component: GestionPatientesComponent ,  canActivate: [AuthGuard] },
+  {path:"gestionRVPS" , component:GestionRVComponent ,  canActivate: [AuthGuard] },
+  {path:"ressourcesPS" , component:RessourcesComponent ,  canActivate: [AuthGuard] },
+  {path:"monCycle" , component: MonCycleComponent,  canActivate: [AuthGuard] },
+  {path:"Forum", component:ForumComponent , canActivate: [AuthGuard] },
   {path:"choixDirection" , component: ChoixDirectionComponent},
   {path:"conditionUtilisaton" , component: ConditionsDuComponent},
   {path:"politiqueConf" , component: PolitiquedConfComponent}

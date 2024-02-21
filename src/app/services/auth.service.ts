@@ -2,13 +2,18 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { apiUrl } from './apiUrl';
+import { Route, Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  router: any;
+  // isLoggedIn() {
+  //   throw new Error('Method not implemented.');
+  // }
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private Router : Router) { }
 
   login(data: any):Observable<any>{
     return this.http.post<any>(`${apiUrl}/auth/login`, data)
@@ -28,6 +33,13 @@ export class AuthService {
     return this.http.post(`${apiUrl}/create_personnelsante`, PS)
   }
   // methode pour la connexion
+  // deconnexion
+  logout() {
+    // Effacer les informations d'authentification stockées, par exemple le token
+    // localStorage.removeItem('access_token');
+    return this.http.post(`${apiUrl}/auth/logout`,{})
+    // this.router.navigate(['/login']);
+  }
 
 }
 

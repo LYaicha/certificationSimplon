@@ -3,16 +3,11 @@
 
 <div class="sidebar">
   <div class="sidebar-brand">
-    <!-- <h1> <span class="fab fa-asymmetrik"> </span> <span>Debbo</span>
-    </h1> -->
-    <!-- <div class="img"
-      style="background-image: url(//src/assets/img/Logo2.png);">
-    </div> -->
-    <img src="/src/assets/Logo1.png" alt="">
+    <img src="../../../assets/img/Logo2.png" alt="">
   </div>
   
   <div class="sidebar-menu">
-    <div class="image"><img src="/assets/DEM-removebg-preview.png" alt=""></div>
+    <!-- <div class="image"><img src="/assets/DEM-removebg-preview.png" alt=""></div> -->
 
     <ul>
       <li>
@@ -34,7 +29,7 @@
         </a>
       </li>
       <div class="logout mt-5">
-        <a [routerLink]="['/accueil']" routerLinkActive="router-link-active">
+        <a (click)="logout()">
           <i class="fas fa-sign-out-alt"></i> Deconnexion
       </a>
       </div>

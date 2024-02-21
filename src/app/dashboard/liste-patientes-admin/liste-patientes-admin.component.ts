@@ -1,6 +1,6 @@
-// import { Component } from '@angular/core';
-// import { Component, OnInit } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 import { DossierMedicService } from 'src/app/services/dossier-medic.service';
 import { PatientService } from 'src/app/services/patient.service';
 import { PSService } from 'src/app/services/ps.service';
@@ -17,11 +17,15 @@ export class ListePatientesAdminComponent {
   allDossierMedical: any[] = [];
 
   dossierMedicalPatient: any;
+  http: any;
+  router: any;
 
   constructor(
     private patientService: PatientService,
     private dossierMedical: DossierMedicService,
-    private psService: PSService
+    private psService: PSService,
+    private route: Router,
+    private authservice: AuthService,
   ) {}
 
   ngOnInit(): void {
@@ -71,6 +75,15 @@ export class ListePatientesAdminComponent {
       const TabPs = response.liste_des_personnels_de_sante;
       this.priseEnChargePar = TabPs.find((elt: any) => elt.id === idPs);
       console.log(this.priseEnChargePar.user.nom);
+    });
+  }
+
+  logout() {
+    this.authservice.logout().subscribe((response) => {
+      console.log(response);
+      localStorage.removeItem('access_token');
+
+      this.route.navigate(['/accueil']);
     });
   }
 }

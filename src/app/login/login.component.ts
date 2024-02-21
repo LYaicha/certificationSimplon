@@ -3,7 +3,10 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../services/auth.service';
 import Swal from 'sweetalert2';
-
+import { Validators } from '@angular/forms';
+export const emailValidator = Validators.pattern(
+  '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$'
+);
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -23,6 +26,7 @@ export class LoginComponent {
 
   emailConnexion: string = '';
   passwordConnexion: string = '';
+  error!: string;
 
   //Methodes
   // pour switcher entre les formulaires de connexion et de connexion
@@ -32,42 +36,40 @@ export class LoginComponent {
 
   // methode pour la connexion
   login() {
-   // Vérifier si les champs sont vides
-  if (!this.emailConnexion || !this.passwordConnexion) {
-    Swal.fire({
-      icon: 'error',
-      title: 'Erreur',
-      text: 'Veuillez remplir tous les champs.',
-    });
-    return;
-  }
+    // Vérifier si les champs sont vides
+    if (!this.emailConnexion || !this.passwordConnexion) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Erreur',
+        text: 'Veuillez remplir tous les champs.',
+      });
+      return;
+    }
     const data = {
       email: this.emailConnexion,
       password: this.passwordConnexion,
     };
-// ici on appel le service  puis on decript le token pour avoir l'object
+    // ici on appel le service  puis on decript le token pour avoir l'object
     this.authService.login(data).subscribe((response) => {
       // console.log(response);
-      localStorage.setItem('access_token',JSON.stringify(response.access_token).replace(/['"]+/g, '')
+      localStorage.setItem(
+        'access_token',
+        JSON.stringify(response.access_token).replace(/['"]+/g, '')
       );
 
-      // a partir de l'objet obtenu on peut obtenir le role 
-      this.authService.userConnect(localStorage.getItem('access_token')).subscribe(
-        (user) => {
+      // a partir de l'objet obtenu on peut obtenir le role
+      this.authService
+        .userConnect(localStorage.getItem('access_token'))
+        .subscribe((user) => {
           console.log(user.role);
-          if (user.role=='admin') {
+          if (user.role == 'admin') {
             this.router.navigate(['dashboard']);
-            
-          }else  if (user.role=='personnelsante') {
-            this.router.navigate(['gestionPatientePS']);
-            
-          }else if (user.role=='utilisateur') {
+          } else if (user.role == 'personnelsante') {
+            this.router.navigate(['gestionRVPS']);
+          } else if (user.role == 'utilisateur') {
             this.router.navigate(['monCycle']);
-          
           }
-          
-        }
-      )
+        });
 
       console.log(response.access_token);
     });

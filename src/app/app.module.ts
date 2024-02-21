@@ -21,7 +21,6 @@ import { GestionPatientesComponent } from './DashPersonel/gestion-patientes/gest
 import { RessourcesComponent } from './DashPersonel/ressources/ressources.component';
 import { MonCycleComponent } from './DashUser/mon-cycle/mon-cycle.component';
 import { ForumComponent } from './DashUser/forum/forum.component';
-import { DevenirPSComponent } from './DashUser/devenir-ps/devenir-ps.component';
 import { ChoixDirectionComponent } from './choix-direction/choix-direction.component';
 // import { CalendrierPsComponent } from './calendrier-ps/calendrier-ps.component';
 import { DxSchedulerModule } from 'devextreme-angular'; 
@@ -49,7 +48,6 @@ import { PolitiquedConfComponent } from './politiqued-conf/politiqued-conf.compo
     RessourcesComponent,
     MonCycleComponent,
     ForumComponent,
-    DevenirPSComponent,
     ChoixDirectionComponent,
     ConditionsDuComponent,
     PolitiquedConfComponent,

@@ -3,64 +3,52 @@
 
 <div class="sidebar">
   <div class="sidebar-brand">
-    <!-- <h1> <span class="fab fa-asymmetrik"> </span> <span>Debbo</span>
-    </h1> -->
-    <!-- <div class="img"
-      style="background-image: url(//src/assets/img/Logo2.png);">
-    </div> -->
-    <img src="/src/assets/Logo1.png" alt="">
+    <img src="../../../assets/img/Logo2.png" alt="">
   </div>
-  
-  <div class="sidebar-menu">
-    <div class="image"><img src="/assets/DEM-removebg-preview.png" alt=""></div>
-
-    <ul>
-      <li>
-        <a class="switch" [routerLink]="['/dashboard']" >
-          <span class="fas fa-tachometer-alt"></span>
-          <span>Tableau de board</span>
-        </a>
-      </li>
-      <li>
-        <a  class="active" >
-          <span class="fas fa-users" ></span>
-          <span>Listes patientes</span>
-        </a>
-      </li>
-      <li>
-        <a class="switch" [routerLink]="['/gestionContenuAdmin']">
-          <span class="fas fa-book-reader"></span>
-          <span>Ressources</span>
-        </a>
-      </li>
-      <!-- <li>
-        <a class="switch" [routerLink]="['/dashboard']">
-          <span><i class="fas fa-comments"></i></span>
-          <span>Gestion Contenu</span>
-        </a>
-      </li> -->
-      <li>
-        
-        <a class="switch" [routerLink]="['/ajoutPersoAdmin']">
-          <span><i class="fas fa-user-plus"></i></span>
-          <span>Gestion Personel</span>
-        </a>
-      </li>
-      <li>
-        <a class="switch" [routerLink]="['/contenuAdmin']">
-          <span><i class="fas fa-user-plus"></i></span>
-          <span>Gestion Contenu</span>
-        </a>
-      </li>
-      <div class="logout mt-5">
-        <a [routerLink]="['/accueil']" routerLinkActive="router-link-active">
-          <i class="fas fa-sign-out-alt"></i> Deconnexion
-      </a>
-      </div>
     
-    </ul>
+    <div class="sidebar-menu">
+      <div class="image"><img src="/assets/DEM-removebg-preview.png" alt=""></div>
 
-  </div>
+      <ul>
+        <li>
+          <a  class="switch" [routerLink]="['/dashboard']">
+            <span class="fas fa-tachometer-alt"></span>
+            <span>Tableau de board</span>
+          </a>
+        </li>
+        <li>
+          <a   class="active" >
+            <span class="fas fa-users" ></span>
+            <span>Listes patientes</span>
+          </a>
+        </li>
+        <!-- <li>
+          <a  class="active">
+            <span class="fas fa-book-reader"  [routerLink]="['/gestionContenuAdmin']"></span>
+            <span>Ressources</span>
+          </a>
+        </li> -->
+        <li>
+          <a class="switch" [routerLink]="['/gestionContenuAdmin']" >
+            <span><i class="fas fa-comments"></i></span>
+            <span>Gestion Contenu</span>
+          </a>
+        </li>
+        <li>
+          <a   [routerLink]="['/ajoutPersoAdmin']">
+            <span><i class="fas fa-user-plus" ></i></span>
+            <span>Gestion Personnel</span>
+          </a>
+        </li>
+        <div class="logout mt-5">
+          <a (click)="logout()">
+            <i class="fas fa-sign-out-alt"></i> Deconnexion
+        </a>
+        </div>
+      
+      </ul>
+
+    </div>
 </div>    
 
 <!-- sidebar Fin -->

@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { apiUrl } from './apiUrl';
 
 @Injectable({
@@ -19,5 +19,16 @@ export class PSService {
 
   getAllPersolleSante(){
     return this.http.get<any>(`${apiUrl}/liste_personnelsante`);
+  }
+  getPersolleSanteValid(){
+    return this.http.get<any>(`${apiUrl}/liste_personnelsante_valide`);
+  }
+
+  validerPS(id: number): Observable<any> {
+    return this.http.delete<any>(`${apiUrl}/valider/{id}`);
+  }
+  
+  invaliderPS(id: number): Observable<any> {
+    return this.http.delete<any>(`${apiUrl}/invalider/{id}`);
   }
 }

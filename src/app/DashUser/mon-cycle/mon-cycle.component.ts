@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 import { CalculOvulationService } from 'src/app/services/calcul-ovulation.service';
 
 
@@ -14,6 +16,7 @@ export class MonCycleComponent  {
   CalculPO!: {
     dateRegles: '';
     dureeCycle: '';
+    disabled: boolean
   };
   dateEstimeeOvulation: string = '';
     periodeFertiliteEstimee: string = '';
@@ -21,12 +24,16 @@ export class MonCycleComponent  {
 
   calculPOForm!: FormGroup;
 localStorage: any;
-  constructor(private calculOvulationService: CalculOvulationService, private fb: FormBuilder) {
+  constructor(private calculOvulationService: CalculOvulationService, private fb: FormBuilder,
+    private route: Router,
+    private authservice: AuthService,) {
     this.CalculPOs = [];
+    
     
     this.calculPOForm = this.fb.group({
       dateRegles: ['', Validators.required],
       dureeCycle: ['', Validators.required],
+
     });
   }
   ngOnInit(): void {
@@ -55,7 +62,15 @@ localStorage: any;
         }
       });
        // Stockage des valeurs dans le local storage
-    
+    });
+  }
+  
+  logout() {
+    this.authservice.logout().subscribe((response) => {
+      console.log(response);
+      localStorage.removeItem('access_token');
+
+      this.route.navigate(['/accueil']);
     });
   }
 
